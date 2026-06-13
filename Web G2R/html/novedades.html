@@ -4,58 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Novedades | G2R Mining Solutions</title>
-    <meta name="description" content="Enterate de las últimas novedades, proyectos y avances de G2R Mining Solutions en la industria minera argentina. Seguinos también en nuestras redes sociales para estar siempre informado.">
+    <meta name="description" content="Enterate de las últimas novedades, proyectos y avances de G2R Mining Solutions en la industria minera argentina.">
     <link rel="stylesheet" href="../css/inicio.css" />
     <link rel="stylesheet" href="../css/header.css" />
     <link rel="stylesheet" href="../css/footer.css" />
     <link rel="stylesheet" href="../css/novedades.css" />
     <link rel="website icon" href="../imagenes/logo-secundario.ico">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <!-- Header placeholder - se carga automáticamente -->
+  <body class="header-solid">
+
+    <!-- Header placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
-    <section class="hero_section">
-      <div class="section_container">
-        <div class="hero_container">
-          <div class="text_section">
-            <h2 id="hero-title">Novedades</h2>
-          </div>
-        </div>
+    <!-- ── HERO ── -->
+    <section class="nov_hero">
+      <div class="nov_hero__overlay"></div>
+      <div class="nov_hero__content">
+        <span class="nov_hero__eyebrow">
+          <span class="nov_hero__dot"></span>
+          G2R Mining Solutions
+        </span>
+        <h1 class="nov_hero__title" id="hero-title">Novedades</h1>
+        <p class="nov_hero__sub" id="hero-sub">
+          Proyectos, avances y todo lo que pasa en el mundo de G2R
+        </p>
       </div>
+      <!-- Línea decorativa inferior -->
+      <div class="nov_hero__line"></div>
     </section>
 
-    <!-- Novedades Section -->
+    <!-- ── SECCIÓN NOVEDADES ── -->
     <section class="novedades" id="novedades">
-      <div class="section_container">
-        <div class="novedades_container">
-          <div class="text_section">
-            <h2 class="section_title" id="section-title">Próximamente publicaremos Novedades!</h2>
-            <p class="section_p">
-              Estamos trabajando en traerte las últimas noticias, actualizaciones y novedades de G2R Mining Solutions. 
-              Muy pronto podrás encontrar aquí información sobre nuestros nuevos proyectos, avances tecnológicos, 
-              eventos importantes y todo lo relacionado con la industria minera.
-            </p>
-            <p class="section_p">
-              Mantente atento a nuestras redes sociales para estar al día con las últimas novedades mientras 
-              preparamos esta sección especial para ti.
-            </p>
+      <div class="novedades_container">
+
+        <!-- Título de sección -->
+        <h2 class="section_title" id="section-title">Novedades</h2>
+
+        <!-- Grid de cards: 3 por fila -->
+        <div class="nov_grid">
+
+          <!-- Card 1 -->
+          <div class="nov_card">
+            <div class="nov_card__image">
+              <!-- Reemplazá el src con la imagen real -->
+              <img src="../imagenes/galeria-01.webp" alt="Noticia 1" />
+            </div>
+            <div class="nov_card__content">
+              <span class="nov_card__tag">Exploración</span>
+              <a href="#" target="_blank" rel="noopener">
+                <span class="nov_card__title">
+                  Inicio de nueva campaña de prospección en la cordillera mendocina
+                </span>
+              </a>
+              <p class="nov_card__desc">
+                El equipo de G2R Mining Solutions inició una nueva campaña de exploración geológica en la zona cordillerana de Mendoza, buscando indicios de mineralización polimetálica.
+              </p>
+              <a class="nov_card__action" href="#" target="_blank" rel="noopener">
+                Leer más <span aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
-        </div>
+
+          <!-- Card 2 -->
+          <div class="nov_card">
+            <div class="nov_card__image">
+              <img src="../imagenes/galeria-02.webp" alt="Noticia 2" />
+            </div>
+            <div class="nov_card__content">
+              <span class="nov_card__tag">Proyectos</span>
+              <a href="#" target="_blank" rel="noopener">
+                <span class="nov_card__title">
+                  Presentación de resultados del Proyecto Cerro Norte ante inversores
+                </span>
+              </a>
+              <p class="nov_card__desc">
+                G2R presentó los resultados preliminares del relevamiento geoquímico y de geofísica realizados durante la última temporada de campaña en el norte del país.
+              </p>
+              <a class="nov_card__action" href="#" target="_blank" rel="noopener">
+                Leer más <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="nov_card">
+            <div class="nov_card__image">
+              <img src="../imagenes/galeria-03.webp" alt="Noticia 3" />
+            </div>
+            <div class="nov_card__content">
+              <span class="nov_card__tag">Sostenibilidad</span>
+              <a href="#" target="_blank" rel="noopener">
+                <span class="nov_card__title">
+                  G2R refuerza su compromiso con los Objetivos de Desarrollo Sostenible
+                </span>
+              </a>
+              <p class="nov_card__desc">
+                La empresa incorpora nuevas prácticas de monitoreo ambiental en todos sus proyectos activos, en línea con su política de sostenibilidad y bienestar comunitario.
+              </p>
+              <a class="nov_card__action" href="#" target="_blank" rel="noopener">
+                Leer más <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ─── Agregá más cards abajo siguiendo la misma estructura ─── -->
+          <!--
+          <div class="nov_card">
+            <div class="nov_card__image">
+              <img src="../imagenes/FOTO.webp" alt="Descripción" />
+            </div>
+            <div class="nov_card__content">
+              <span class="nov_card__tag">CATEGORÍA</span>
+              <a href="URL_NOTICIA" target="_blank" rel="noopener">
+                <span class="nov_card__title">TÍTULO DE LA NOTICIA</span>
+              </a>
+              <p class="nov_card__desc">DESCRIPCIÓN BREVE</p>
+              <a class="nov_card__action" href="URL_NOTICIA" target="_blank" rel="noopener">
+                Leer más <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          -->
+
+        </div><!-- /nov_grid -->
+
       </div>
     </section>
 
-    <!-- Footer placeholder - se carga automáticamente -->
+    <!-- Footer placeholder -->
     <div id="footer-placeholder"></div>
 
-    <!-- JavaScript para cargar componentes -->
     <script src="../js/components-html.js"></script>
     <script src="../js/complete-language-system.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="../js/contact.js"></script>
+
   </body>
 </html>

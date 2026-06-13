@@ -14,7 +14,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 1000;
     background: transparent;
     overflow: visible; /* Asegurar que el desplegable no se corte */
 }
@@ -314,6 +314,18 @@ label .close_btn {
     opacity: 1 !important;
 }
 
+/* Header siempre sólido en páginas que lo requieran */
+body.header-solid header {
+    background: #fff !important;
+}
+
+body.header-solid header nav ul li a {
+    color: var(--secondary-color) !important;
+}
+
+body.header-solid header label {
+    color: #000 !important;
+}
 
 /* Media Queries para Header */
 

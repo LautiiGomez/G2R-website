@@ -1,67 +1,318 @@
-/* -------------------------------- 
-G2R Mining Solutions - Novedades CSS
--------------------------------- */
+/* ─────────────────────────────────────────────
+   G2R Mining Solutions — novedades.css
+   Sección de novedades: hero + grid de cards
+───────────────────────────────────────────── */
 
-/* Hero Section */
-.hero_section {
-    min-height: 100vh;
-    background: url("../imagenes/fondo-novedades.webp") no-repeat 50% 50%;
-    background-size: cover;
-    background-attachment: fixed;
-    text-align: center;
+/* ══ HEADER SÓLIDO ══════════════════════════════
+   En novedades el header arranca sólido siempre,
+   sin esperar el scroll. Evita el efecto traslúcido
+   sobre el hero.
+══════════════════════════════════════════════ */
+header {
+    background: #fff !important;
 }
 
-/* Novedades Section */
+header nav ul li a {
+    color: var(--secondary-color) !important;
+}
+
+header .nav_logo h2,
+header label {
+    color: var(--secondary-color) !important;
+}
+
+header .top-menu::after {
+    background-color: var(--secondary-color) !important;
+}
+
+header .usa-language__link {
+    color: var(--secondary-color) !important;
+}
+
+
+/* ══ HERO ══════════════════════════════════════ */
+
+.nov_hero {
+    position: relative;
+    min-height: 65vh;
+    background: url("../imagenes/fondo-novedades.webp") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    /* Espacio para el header fijo */
+    padding-top: 60px;
+}
+
+/* Overlay degradado: oscuro arriba, verde G2R abajo */
+.nov_hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        160deg,
+        rgba(15, 20, 16, 0.78) 0%,
+        rgba(78, 138, 26, 0.45) 100%
+    );
+    z-index: 0;
+}
+
+/* Contenido sobre el overlay */
+.nov_hero__content {
+    position: relative;
+    z-index: 1;
+    padding: 0 24px;
+    max-width: 700px;
+}
+
+/* Eyebrow — "G2R Mining Solutions" con punto animado */
+.nov_hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 18px;
+}
+
+.nov_hero__dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    animation: nov_pulse 2s ease-in-out infinite;
+}
+
+@keyframes nov_pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* Título principal */
+.nov_hero__title {
+    font-family: "Righteous", sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 400; /* Righteous ya es display */
+    color: #fff;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    /* Acento de color en la primera letra */
+    -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+}
+
+/* Subtítulo */
+.nov_hero__sub {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+/* Línea verde en la base del hero */
+.nov_hero__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+    z-index: 1;
+}
+
+
+/* ══ SECCIÓN NOVEDADES ═══════════════════════ */
+
 .novedades {
-    padding: 80px 0;
+    padding: 80px 20px 100px;
     background: var(--white-color);
 }
 
 .novedades_container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
-.novedades_container .section_title {
-    font-size: 32px;
+/* Reutiliza .section_title de inicio.css */
+.novedades .section_title {
+    margin-bottom: 56px;
+}
+
+
+/* ══ GRID DE CARDS ══════════════════════════ */
+
+.nov_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+
+/* ══ CARD ═══════════════════════════════════ */
+
+.nov_card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #efefef;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.nov_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.13);
+}
+
+/* Imagen de la card */
+.nov_card__image {
+    width: calc(100% - 30px);
+    margin: 15px 15px 0 15px;
+    height: 170px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #d4edba; /* placeholder si falla la imagen */
+    flex-shrink: 0;
+}
+
+.nov_card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.nov_card:hover .nov_card__image img {
+    transform: scale(1.06);
+}
+
+/* Contenido */
+.nov_card__content {
+    padding: 16px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Tag / categoría */
+.nov_card__tag {
+    display: inline-block;
+    font-size: 10px;
     font-weight: 700;
-    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    background: rgba(108, 175, 44, 0.1);
+    border-radius: 4px;
+    padding: 3px 8px;
+    margin-bottom: 10px;
+    width: fit-content;
 }
 
-.novedades_container .section_p {
-    font-size: 18px;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    text-align: justify;
+/* Título de la noticia */
+.nov_card__content > a {
+    text-decoration: none;
 }
 
-/* Responsive */
+.nov_card__title {
+    display: block;
+    color: #111827;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.nov_card__content > a:hover .nov_card__title {
+    color: var(--secondary-color);
+}
+
+/* Descripción breve */
+.nov_card__desc {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* Botón "Leer más" */
+.nov_card__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 16px;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: var(--secondary-color);
+    padding: 6px 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    width: fit-content;
+    transition: background 0.2s ease;
+}
+
+.nov_card__action span {
+    transition: transform 0.25s ease;
+}
+
+.nov_card__action:hover {
+    background-color: var(--dark-color);
+}
+
+.nov_card__action:hover span {
+    transform: translateX(4px);
+}
+
+
+/* ══ RESPONSIVE ═════════════════════════════ */
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+    .nov_grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+}
+
+/* Tablet chica / Hero */
 @media screen and (max-width: 768px) {
-    .hero_section {
-        background-attachment: scroll;
+    .nov_hero {
+        min-height: 55vh;
+        background-attachment: scroll; /* fix iOS */
     }
 
     .novedades {
-        padding: 50px 0;
-    }
-
-    .novedades_container .section_title {
-        font-size: 24px;
-    }
-
-    .novedades_container .section_p {
-        font-size: 16px;
-        text-align: left;
+        padding: 56px 16px 72px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .novedades_container .section_title {
-        font-size: 20px;
+/* Móvil */
+@media screen and (max-width: 580px) {
+    .nov_grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .novedades_container .section_p {
-        font-size: 15px;
+    .nov_hero__title {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+    }
+
+    .nov_card__image {
+        height: 200px; /* más alto en móvil para lucir bien */
     }
 }

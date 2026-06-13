@@ -10,7 +10,9 @@ function includeHeader() {
             .then(data => {
                 headerPlaceholder.innerHTML = data;
                 initializeHeader();
-                // FIX: re-aplicar idioma al header DESPUÉS de que cargó
+                // Aplicar estado correcto del header apenas se inyecta
+                updateHeaderState();
+                // Re-aplicar idioma al header DESPUÉS de que cargó
                 const lang = localStorage.getItem('g2r-language') || 'es';
                 if (window.switchLanguage) {
                     window.switchLanguage(lang);
@@ -31,7 +33,7 @@ function includeFooter() {
             .then(response => response.text())
             .then(data => {
                 footerPlaceholder.innerHTML = data;
-                // FIX: re-aplicar idioma al footer DESPUÉS de que cargó
+                // Re-aplicar idioma al footer DESPUÉS de que cargó
                 const lang = localStorage.getItem('g2r-language') || 'es';
                 if (window.switchLanguage) {
                     window.switchLanguage(lang);
@@ -105,18 +107,34 @@ function initializeHeader() {
     }
 }
 
+// Páginas donde el header debe ser siempre sólido (blanco)
+// sin importar la posición del scroll
+const SOLID_HEADER_PAGES = ['novedades'];
+
+// Detecta si la página actual requiere header siempre sólido
+function isHeaderAlwaysSolid() {
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', '');
+    return SOLID_HEADER_PAGES.includes(currentPage);
+}
+
+// Actualiza el estado visual del header según scroll y página
+function updateHeaderState() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    if (isHeaderAlwaysSolid() || window.scrollY > 0) {
+        header.classList.add('white');
+    } else {
+        header.classList.remove('white');
+    }
+}
+
 // Función para inicializar el scroll del header
 function initializeHeaderScroll() {
-    window.addEventListener('scroll', function () {
-        const header = document.querySelector('header');
-        if (header) {
-            if (window.scrollY > 0) {
-                header.classList.add('white');
-            } else {
-                header.classList.remove('white');
-            }
-        }
-    });
+    // Aplicar estado inicial
+    updateHeaderState();
+    // Actualizar en cada scroll
+    window.addEventListener('scroll', updateHeaderState);
 }
 
 // Cargar componentes cuando la página esté lista
